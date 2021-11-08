@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-decoration: none;
+    transition: background 0.3s ease-out;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    font-family: 'Roboto', sans-serif;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    background: #F5F5F5;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    margin-bottom: 1px;
+    position: relative;
+}
+
+header .container {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: #FFFFFF;
+}
+
+header .container .logo {
+    position: absolute;
+    width: 147px;
+    height: 26px;
+    left: 40px;
+    top: 39px;
+}
+
+header .container .menu {
+    position: absolute;
+    width: 710px;
+    height: 18px;
+    left: 255px;
+    top: 40px;
+}
+
+header .container .menu a {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #111111;
+    padding-right: 20px;
+}
+
+header .container .menu a:hover {
+    color: #2382E0;
+}
+
+header .container .phone {
+    position: absolute;
+    width: 202px;
+    right: 463px;
+    top: 38%;
+    bottom: 38%;
+}
+
+header .container .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+
+    position: absolute;
+    width: 245px;
+    height: 50px;
+    right: 40px;
+    top: 25px;
+}
+
+header .container .buttons .login,
+header .container .buttons .logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px 16px;
+    position: static;
+    width: 92px;
+    right: 153px;
+    top: 0%;
+    bottom: 0%;
+    border: 1px #2382E0 solid;
+    border-radius: 8px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #111111;
+}
+
+header .container .buttons .login:hover,
+header .container .buttons .logout:hover {
+    border-color: transparent;
+    background: linear-gradient(281.27deg, #2382E0 0%, #18A0FB 100%);
+    color: #FFFFFF;
+}
+
+header .container .buttons .registration {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px 16px;
+    position: static;
+    width: 143px;
+    right: 0px;
+    top: 0%;
+    bottom: 0%;
+    background: linear-gradient(281.27deg, #2382E0 0%, #18A0FB 100%);
+    border: 1px transparent solid;
+    border-radius: 8px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 10px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+header .container .buttons .registration:hover {
+    border-color: #2382E0;
+    background: transparent;
+    color: #111111;
+}
+
+header .container .buttons .profile {
+    width: 160px;
+    margin-left: -90px;
+    position: relative;
+}
+
+header .container .buttons .profile .label {
+    position: absolute;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #111111;
+    padding-left: 10px;
+}
+
+header .container .buttons .profile .company-name {
+    top: 0px;
+}
+
+header .container .buttons .profile .company-phone {
+    top: 15px;
+}
+
+header .container .mobile-menu {
+    display: none;
+    padding: 0px;
+    position: absolute;
+    height: 50px;
+    right: 40px;
+    top: 40px;
+}
+
+
+footer {
+    position: absolute;
+    height: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #FFFFFF;
+}
+
+footer .container {
+    margin: 0 auto;
+    width: 1170px;
+    top: 30%;
+    position: relative;
+}
+
+footer .container span {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 140%;
+    /* identical to box height, or 20px */
+
+
+    color: #888888;
+}
+
+@media (max-width: 1200px) {
+    header .container .menu {
+        display: none;
+    }
+
+    header .container .phone {
+        display: none;
+    }
+
+    header .container .mobile-menu {
+        display: block;
+    }
+
+    header .container .buttons {
+        right: 80px;
+    }
+
+    body main > .container .row {
+        width: 80%;
+    }
+}
+
+@media (max-width: 680px) {
+    body header .container .buttons {
+        display: none;
+    }
+}
+
+main > .container {
+    background: #FFFFFF;
+    position: fixed;
+    top: 101px;
+    right: 0;
+    bottom: 51px;
+    left: 0;
+    overflow: auto;
+}
+
+main > .container .row {
+    margin: 0 auto;
+    max-width: 1170px;
+    width: 100%;
+    padding-top: 59px;
+    padding-bottom: 100px;
+}
+
+main > .container h1 {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: #111111;
+    padding-bottom: 35px;
+}
+
+main > .container label {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    color: #111111;
+    margin-bottom: 10px;
+}
+
+main > .container input[type="text"],
+main > .container input[type="password"],
+main > .container input[type="email"],
+main > .container input[type="number"],
+main > .container input[type="login"],
+main > .container input[type="datetime-local"],
+main > .container textarea,
+main > .container select {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    color: #111111;
+    background: #F2F2F2;
+    border-radius: 8px;
+    box-shadow: none;
+    border: 0 none;
+    width: 370px;
+    height: 50px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+main .login.container .checkbox {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+main > .container .checkbox label {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+main > .container.registration .checkbox input {
+    display: none;
+}
+
+main > .container .checkbox input {
+    width: 22px;
+    height: 22px;
+    left: 0px;
+    top: 0px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 12px 0 0;
+    background: #F2F2F2;
+    border: 1px solid #D9D9D9;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+main > .container button {
+    background: linear-gradient(281.27deg, #2382E0 0%, #18A0FB 100%);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 35px 16px;
+    border: 1px transparent solid;
+    margin-bottom: 25px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+    border-color: transparent;
+    width: 370px;
+    cursor: pointer;
+}
+
+main > .container button:hover {
+    border-color: #2382E0;
+    background: transparent;
+    color: #111111;
+}
+
+main .login.container .info span {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 140%;
+    align-items: center;
+    color: #000000;
+}
+
+main .login.container .info a {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    align-items: center;
+    padding: 0 5px;
+    color: #2382E0;
+}
+
+main .login.container .info a:hover {
+    color: #000000;
+}
+
+main .registration.container input[type="radio"] {
+    width: 22px;
+    height: 22px;
+    left: 0px;
+    top: 0px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 12px 0 0;
+    background: #F2F2F2;
+    border: 1px solid #D9D9D9;
+    box-sizing: border-box;
+    border-radius: 3px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+main .registration.container .form-control label {
+    margin-bottom: 15px;
+}
+
+main .registration.container form > div {
+    margin-bottom: 10px;
+}
+
+main .registration.container form > div+div {
+    margin-bottom: 30px;
+}
+
+main .registration.container #registration_form label[for="registration_form_agreeTerms"] {
+    display: inline;
+    line-height: 22px;
+}
+
+main .registration.container #registration_form label[for="registration_form_agreeTerms"]+input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    left: 0px;
+    top: 0px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 12px 0 0;
+    background: #F2F2F2;
+    border: 1px solid #D9D9D9;
+    box-sizing: border-box;
+    border-radius: 3px;
+    float: left;
+}
+
+main .registration.container #registration_form_submit {
+    margin-top: 20px;
+}
+
+
+.blue-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px 16px;
+    position: static;
+    width: 143px;
+    right: 0px;
+    top: 0%;
+    bottom: 0%;
+    background: linear-gradient(281.27deg, #2382E0 0%, #18A0FB 100%);
+    border: 1px transparent solid;
+    border-radius: 8px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 10px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.blue-button:hover {
+    border-color: #2382E0;
+    background: transparent;
+    color: #111111;
+}
+
+.auc-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 28px;
+    width: auto;
+    min-height: 242px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    float: left;
+    margin: 0 5px 10px;
+    max-width: 330px;
+}
+
+.auc-item .left {
+    float: left;
+    /*width: 70%;*/
+}
+
+.auc-item .right {
+    /*width: 29%;*/
+}
+
+.auc-item span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    color: #888888;
+    padding: 18px 0px;
+}
+
+.auc-item h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+    color: #111111;
+    padding: 18px 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 197px;
+    display: block;
+    overflow: hidden;
+}

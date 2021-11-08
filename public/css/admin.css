@@ -1,0 +1,105 @@
+.hidden {
+    display: none;
+}
+.mt-4-5 {
+    margin-top: 2rem!important;
+}
+#auctions .custom-file-label {
+    width: 100%;
+    position: relative;
+}
+#auctions .vich-image {
+    width: 100%;
+    position: absolute;
+    top: 32px;
+}
+.custom-file-label::after {
+    content: "Вибрати";
+}
+.characteristics-item div {
+    display: inline-block;
+    margin: 10px 5px;
+}
+#create_auctions_attachments label {
+    font-weight: normal;
+}
+#delete-select-btn {
+    z-index: 1;
+    position: relative;
+    top: -39px;
+    right: -115px;
+}
+#create_auctions_attachments .attachments-item {
+    height: 50px;
+}
+#create_auctions_attachments .attachments-item div {
+    /*display: -webkit-inline-box;*/
+    /*margin: 10px 5px;*/
+    width: 100%;
+    height: 50px;
+}
+#create_auctions_attachments .attachments-item div div {
+    width: 100%;
+    position: relative;
+    top: -51px;
+}
+#create_auctions_attachments {
+    position: relative;
+    height: 50px;
+    display: contents;
+}
+#create_auctions_attachments .delete-image {
+    clear: both;
+    position: relative;
+    height: 50px;
+    display: flex;
+}
+
+.characteristics-item div label,
+.attachments-item div label{
+    margin-right: 10px;
+}
+
+.attachments-item div input{
+    width: 100%;
+    height: calc(2.25rem    + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-shadow: inset 0 0 0 transparent;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.characteristics-item div input{
+    height: calc(2.25rem    + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-shadow: inset 0 0 0 transparent;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.characteristics-item div button,
+.attachments-item div button{
+    float: right;
+}
+.clearfix {
+    clear: both;
+}
+.card-body.p-0 .table thead>tr>th:first-of-type {
+    width:10px;
+}
+.card-body.p-0 .table thead>tr>th:nth-child(2) {
+    width:10px;
+}
