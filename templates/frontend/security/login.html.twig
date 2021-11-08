@@ -1,0 +1,43 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Авторизація{% endblock %}
+
+{% block body %}
+<div class="login container">
+    <div class="row">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+            <h1 class="h3 mb-3 font-weight-normal">{% trans from 'messages+intl-icu' %}login.title{% endtrans %}</h1>
+            <label for="inputLogin">{% trans from 'messages+intl-icu' %}login.email{% endtrans %}</label>
+            <input type="email" id="inputLogin" name="email"  class="form-control" required autofocus>
+            <label for="inputPassword">{% trans from 'messages+intl-icu' %}login.password{% endtrans %}</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me"> {% trans from 'messages+intl-icu' %}login.rememberMy{% endtrans %}
+                </label>
+            </div>
+
+
+            <button class="btn-lg btn-primary" type="submit">
+                {% trans from 'messages+intl-icu' %}login.autorization_button{% endtrans %}
+            </button>
+{#            <div class="info"><span>{% trans from 'messages+intl-icu' %}login.registration_label{% endtrans %}</span><a href="{{ path('app_register') }}">{% trans from 'messages+intl-icu' %}login.registration_button{% endtrans %}</a></div>#}
+        </form>
+    </div>
+</div>
+{% endblock %}
+

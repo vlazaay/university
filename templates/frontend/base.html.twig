@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="{{ app.session.get('_locale') }}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/icons/css/font-awesome.css') }}"/>
+    {# <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}"/> #}
+    <link rel="stylesheet" href="{{ asset('css/style_base.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="logo">
+                <img src="{{ asset('images/logo.png') }}" alt="ZDUuniversity">
+            </div>
+            <div class="menu">
+{#                <a href="{{ path('home') }}"#}
+{#                   class="text-white">{% trans from 'messages+intl-icu' %}admin.title{% endtrans %}</a>#}
+                {% if app.user %}
+                    <a href="{{ path('home_my_lots_view') }}"
+                       class="text-white">{% trans from 'messages+intl-icu' %}main-page.myLot{% endtrans %}</a>
+                    <a href="{{ path('balance') }}"
+                       class="text-white">{% trans from 'messages+intl-icu' %}balance.title{% endtrans %}</a>
+                {% endif %}
+            </div>
+            <div class="menu-header">
+                {# {{ app.session.get('_locale') }} #}
+                {# {{ dump(app.session.get('languages')) }} #}
+
+                {# {{ dump(app.session.get('currency')) }} #}
+                {# {{ dump(app.session.get('currencies')) }} #}
+{#                <select name="language" id="language">#}
+{#                    {% for language in app.session.get('languages') %}#}
+{#                        <option {% if app.session.get('_locale') == language %}selected=""{% endif %}#}
+{#                                value="{{ language }}">{{ language }}</option>#}
+{#                    {% endfor %}#}
+{#                </select>#}
+{#                <select name="currencies" id="currencies">#}
+{#                    {% for currency in app.session.get('currencies') %}#}
+{#                        <option {% if app.session.get('currency') == currency %}selected=""{% endif %}#}
+{#                                value="{{ currency.code }}">{{ currency.code }}</option>#}
+{#                    {% endfor %}#}
+{#                </select>#}
+            </div>
+{#            <div class="phone">#}
+{#                <img src="{{ asset('images/phone.png') }}" alt="0440000000">#}
+{#            </div>#}
+
+            <div class="buttons">
+                {% if app.user %}
+                    <a class="profile"
+                            {% if app.user.roles[0] == 'ROLE_USER_BRO' %}
+                                href="{{ path('profile',{id:app.user.id,slug:'bro'}) }}"
+                            {% elseif app.user.roles[0] == 'ROLE_USER_FIZ' %}
+                                href="{{ path('profile',{id:app.user.id,slug:'fiz'}) }}"
+                            {% elseif app.user.roles[0] == 'ROLE_USER_FOP' %}
+                                href="{{ path('profile',{id:app.user.id,slug:'fop'}) }}"
+                            {% elseif app.user.roles[0] == 'ROLE_USER_YRL' %}
+                                href="{{ path('profile',{id:app.user.id,slug:'yrl'}) }}"
+                            {% endif %}
+                    >
+                        <img src="{{ asset('images/icon_login.png') }}"
+                             alt="{% trans from 'messages+intl-icu' %}profile_button{% endtrans %}">
+                        {% if profile is defined and profile %}
+                            {% if profile.fieldName is defined %}
+                                <span class="label company-name">{{ profile.fieldName }}</span>
+                            {% endif %}
+                            {% if profile.phone is defined %}
+                                <span class="label company-phone">{{ profile.phone }}</span>
+                            {% endif %}
+                        {% endif %}
+                    </a>
+                    <a href="{{ path('app_logout') }}"
+                       class="logout">{% trans from 'messages+intl-icu' %}logout_button{% endtrans %}</a>
+                {% else %}
+{#                    <a href="{{ path('app_login') }}"#}
+{#                       class="login">{% trans from 'messages+intl-icu' %}login_button{% endtrans %}</a>#}
+{#                    <a href="{{ path('app_register') }}"#}
+{#                       class="registration">{% trans from 'messages+intl-icu' %}registration_button{% endtrans %}</a>#}
+                {% endif %}
+            </div>
+            <div class="mobile-menu">
+                <a class="navbar-toggler">
+                    <img src="{{ asset('images/icon_burger.png') }}"
+                         alt="{% trans from 'messages+intl-icu' %}menu_button{% endtrans %}">
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<main role="main" class="container">
+    {# {% for flashMessage in app.session.flashbag.get('success') %} #}
+    {# <div class="alert alert-success">{{ flashMessage }}</div> #}
+    {# {% endfor %} #}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% block body %}
+    {% endblock %}
+</main>
+
+<footer>
+    <div class="container">
+        <span>{% trans from 'messages+intl-icu' %}footer{% endtrans %}</span>
+    </div>
+</footer>
+
+
+{% block javascripts %}
+{% endblock %}
+
+
+{# <script language = "javascript" src = "https://code.jquery.com/jquery-2.2.4.min.js"></script> #}
+<script language="javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="{{ asset('js/jquery.mask.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+</body>
+</html>
+
+
