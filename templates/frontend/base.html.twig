@@ -20,12 +20,12 @@
             <div class="menu">
 {#                <a href="{{ path('home') }}"#}
 {#                   class="text-white">{% trans from 'messages+intl-icu' %}admin.title{% endtrans %}</a>#}
-                {% if app.user %}
-                    <a href="{{ path('home_my_lots_view') }}"
-                       class="text-white">{% trans from 'messages+intl-icu' %}main-page.myLot{% endtrans %}</a>
-                    <a href="{{ path('balance') }}"
-                       class="text-white">{% trans from 'messages+intl-icu' %}balance.title{% endtrans %}</a>
-                {% endif %}
+{#                {% if app.user %}#}
+{#                    <a href="{{ path('home_my_lots_view') }}"#}
+{#                       class="text-white">{% trans from 'messages+intl-icu' %}main-page.myLot{% endtrans %}</a>#}
+{#                    <a href="{{ path('balance') }}"#}
+{#                       class="text-white">{% trans from 'messages+intl-icu' %}balance.title{% endtrans %}</a>#}
+{#                {% endif %}#}
             </div>
             <div class="menu-header">
                 {# {{ app.session.get('_locale') }} #}
@@ -52,30 +52,30 @@
 
             <div class="buttons">
                 {% if app.user %}
-                    <a class="profile"
-                            {% if app.user.roles[0] == 'ROLE_USER_BRO' %}
-                                href="{{ path('profile',{id:app.user.id,slug:'bro'}) }}"
-                            {% elseif app.user.roles[0] == 'ROLE_USER_FIZ' %}
-                                href="{{ path('profile',{id:app.user.id,slug:'fiz'}) }}"
-                            {% elseif app.user.roles[0] == 'ROLE_USER_FOP' %}
-                                href="{{ path('profile',{id:app.user.id,slug:'fop'}) }}"
-                            {% elseif app.user.roles[0] == 'ROLE_USER_YRL' %}
-                                href="{{ path('profile',{id:app.user.id,slug:'yrl'}) }}"
-                            {% endif %}
-                    >
-                        <img src="{{ asset('images/icon_login.png') }}"
-                             alt="{% trans from 'messages+intl-icu' %}profile_button{% endtrans %}">
-                        {% if profile is defined and profile %}
-                            {% if profile.fieldName is defined %}
-                                <span class="label company-name">{{ profile.fieldName }}</span>
-                            {% endif %}
-                            {% if profile.phone is defined %}
-                                <span class="label company-phone">{{ profile.phone }}</span>
-                            {% endif %}
-                        {% endif %}
-                    </a>
-                    <a href="{{ path('app_logout') }}"
-                       class="logout">{% trans from 'messages+intl-icu' %}logout_button{% endtrans %}</a>
+{#                    <a class="profile"#}
+{#                            {% if app.user.roles[0] == 'ROLE_USER_BRO' %}#}
+{#                                href="{{ path('profile',{id:app.user.id,slug:'bro'}) }}"#}
+{#                            {% elseif app.user.roles[0] == 'ROLE_USER_FIZ' %}#}
+{#                                href="{{ path('profile',{id:app.user.id,slug:'fiz'}) }}"#}
+{#                            {% elseif app.user.roles[0] == 'ROLE_USER_FOP' %}#}
+{#                                href="{{ path('profile',{id:app.user.id,slug:'fop'}) }}"#}
+{#                            {% elseif app.user.roles[0] == 'ROLE_USER_YRL' %}#}
+{#                                href="{{ path('profile',{id:app.user.id,slug:'yrl'}) }}"#}
+{#                            {% endif %}#}
+{#                    >#}
+{#                        <img src="{{ asset('images/icon_login.png') }}"#}
+{#                             alt="{% trans from 'messages+intl-icu' %}profile_button{% endtrans %}">#}
+{#                        {% if profile is defined and profile %}#}
+{#                            {% if profile.fieldName is defined %}#}
+{#                                <span class="label company-name">{{ profile.fieldName }}</span>#}
+{#                            {% endif %}#}
+{#                            {% if profile.phone is defined %}#}
+{#                                <span class="label company-phone">{{ profile.phone }}</span>#}
+{#                            {% endif %}#}
+{#                        {% endif %}#}
+{#                    </a>#}
+{#                    <a href="{{ path('app_logout') }}"#}
+{#                       class="logout">{% trans from 'messages+intl-icu' %}logout_button{% endtrans %}</a>#}
                 {% else %}
 {#                    <a href="{{ path('app_login') }}"#}
 {#                       class="login">{% trans from 'messages+intl-icu' %}login_button{% endtrans %}</a>#}
