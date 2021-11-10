@@ -6,6 +6,8 @@
 parameters:
     env(MONGODB_URL): 'mongodb://localhost:27017'
     env(MONGODB_DB): 'symfony'
+    app.app-roles: ['ROLE_DEKANAT','ROLE_STUDENT','ROLE_ADMIN']
+    pageSize : 10
 
 services:
     # default configuration for services in *this* file

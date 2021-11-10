@@ -211,10 +211,22 @@
 {#                        </a>#}
                     </li>
                     <li class="nav-item">
-{#                        <a href="{{ path('admin_users') }}" class="nav-link">#}
-{#                            <i class="nav-icon fas fa-circle"></i>#}
-{#                            <p>{% trans from 'messages+intl-icu' %}admin.users.main{% endtrans %}</p>#}
-{#                        </a>#}
+                        <a href="{{ path('admin_users') }}" class="nav-link">
+                            <i class="nav-icon fas fa-circle"></i>
+                            <p>{% trans from 'messages+intl-icu' %}admin.users.main{% endtrans %}</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('admin_reports') }}" class="nav-link">
+                            <i class="nav-icon fas fa-circle"></i>
+                            <p>{% trans from 'messages+intl-icu' %}admin.reports.main{% endtrans %}</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('admin_csv') }}" class="nav-link">
+                            <i class="nav-icon fas fa-circle"></i>
+                            <p>{% trans from 'messages+intl-icu' %}admin.csv.main{% endtrans %}</p>
+                        </a>
                     </li>
                 </ul>
             </nav>

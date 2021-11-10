@@ -1,0 +1,141 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}{% trans from 'messages+intl-icu' %}admin.users.main{% endtrans %}{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block body %}
+    <div class="card-body">
+        <div class="col-sm-1 col-lg-1 col-1 nav-pills m-1 text-center">
+             <a href="{{ path('admin_users_add') }}" class="nav-link active">
+             {% trans from 'messages+intl-icu' %}admin.add{% endtrans %}
+             </a>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-12 col-lg-12 col-12">
+            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">{% trans from 'messages+intl-icu' %}admin.users.main{% endtrans %}</h3>
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" name="table_search" class="form-control float-right"
+                                               placeholder="{% trans from 'messages+intl-icu' %}admin.search{% endtrans %}">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>e-mail</th>
+                                        <th>Статус</th>
+                                        <th>Активація/Деактивація</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if list is defined %}
+                                        {% for item in list %}
+                                            <tr>
+                                                <td>{{ item.scope }}</td>
+                                                <td class='clickable-row'
+                                                    data-href='{{ path('admin_users_update',{id:item.id}) }}'
+                                                    id="email_user" onMouseOver="this.style.color='#00F'"
+                                                    onMouseOut="this.style.color='#000'">{{ item.email }}</td>
+                                                 <td>
+                                                 {% for role in item.roles %}
+                                                 {% if role is same as "ROLE_DEKANAT" %}
+                                                 {{ "Деканат" }}<br>
+                                                 {% elseif role is same as "ROLE_STUDENT"%}
+                                                 {{ "Студент" }}<br>
+                                                 {% elseif role is same as "ROLE_ADMIN"%}
+                                                 {{ "Администратор" }}<br>
+                                                 {% endif %}
+
+                                                 {% endfor %}
+                                                 </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                                            <input data-id="{{ item.id }}"
+                                                                   {% if item.isBlocked == 0 %}checked{% endif %}
+                                                                   type="checkbox"
+                                                                   class="custom-control-input customSwitch"
+                                                                   id="customSwitch{{ item.id }}">
+                                                            <label class="custom-control-label"
+                                                                   for="customSwitch{{ item.id }}">
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                </div>
+{#                <div class="row">#}
+{#                    <div class="col-sm-12 col-md-5">#}
+{#                        <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">#}
+{#                            {% if totalItems != 0 %}#}
+{#                                Показує#}
+{#                                {% if totalItems < onPageItems %}#}
+{#                                    {{ totalItems }}#}
+{#                                {% else %}#}
+{#                                    {{ onPageItems }}#}
+{#                                {% endif %}#}
+{#                                из {{ totalItems }}#}
+{#                            {% endif %}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-sm-12 col-md-7">#}
+{#                        <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">#}
+{#                            <ul class="pagination">#}
+{#                                {{ pagination | raw }}#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+    <script>
+        $('.customSwitch').on('change', function(){
+            var id =  $(this).data("id");
+            if ($(this).is(':checked')) {
+                var active =  true;
+            } else {
+                var active =  false;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/api/profile/active",
+                data: {'id': id,'active':active},
+                success: function (msg) {
+                    console.log('success ' + msg);
+                    console.log(msg);
+                    // location.reload();
+                },
+                error: function (msg) {
+                    console.log('error ' + msg);
+                }
+            });
+        });
+
+    </script>
+{% endblock %}

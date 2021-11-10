@@ -1,0 +1,46 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{% trans from 'messages+intl-icu' %}admin.users.main{% endtrans %}{% endblock %}
+
+{% block stylesheets %}
+    <style>
+
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-3 col-6 m-auto">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">{% trans from 'messages+intl-icu' %}admin.update{% endtrans %}</h3>
+                </div>
+                {{ form_start(UpdateUserForm) }}
+                <div class="card-header">
+                    <h3 class="card-title">{{ form_errors(UpdateUserForm) }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        {{ form_label(UpdateUserForm.email) }}
+                        {{ form_widget(UpdateUserForm.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(UpdateUserForm.plainPassword) }}
+                        {{ form_widget(UpdateUserForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(UpdateUserForm.roles) }}
+                        {{ form_widget(UpdateUserForm.roles, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    {{ form_widget(UpdateUserForm.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                </div>
+                {{ form_end(UpdateUserForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
