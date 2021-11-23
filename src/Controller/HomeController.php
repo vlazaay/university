@@ -23,4 +23,12 @@ class HomeController extends AbstractController
 
         return new Response('Created user id ' . $product->getId());
     }
+    /**
+     * @Route("/", name="index")
+     */
+    public function index(): Response
+    {
+        return $this->render('frontend/home/index.html.twig', [
+        ]);
+    }
 }

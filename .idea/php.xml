@@ -147,9 +147,15 @@
       <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/symfony/redis-messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/amqp-messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-messenger" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-escaper" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpword" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7">
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.4">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpUnit">
